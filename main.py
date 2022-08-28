@@ -1,12 +1,16 @@
 import pyglet
+from pyglet import image
 
 
 window = pyglet.window.Window(width=1280, height=960)
+
+player = image.load("./assets/img/starship.png")
 
 
 @window.event
 def on_draw():
     window.clear()
+    player.blit(50, 50)
 
 
 def update(dt):
