@@ -10,6 +10,6 @@ class GameSprite:
     def draw(self):
         self._img.blit(self.x, self.y)
 
-    def update(self):
+    def update(self, dt):
         pass
 

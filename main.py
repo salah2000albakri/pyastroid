@@ -1,14 +1,15 @@
 import pyglet
 
+from src.asteroid import Asteroid
 from src.gamesprite import GameSprite
 
 window = pyglet.window.Window(width=1280, height=960)
 
 player = GameSprite("./assets/img/starship.png", 50, 50)
 
-asteroid_big = GameSprite("./assets/img/Asteroid_Large.png", 100,50)
-asteroid_medium = GameSprite("./assets/img/Asteroid_Medium.png", 150,30)
-asteroid_small = GameSprite("./assets/img/Asteroid_Small.png", 50,100)
+asteroid_big = Asteroid("./assets/img/Asteroid_Large.png", 100,50)
+asteroid_medium = Asteroid("./assets/img/Asteroid_Medium.png", 150,30)
+asteroid_small = Asteroid("./assets/img/Asteroid_Small.png", 50,100)
 
 entity_list = [player, asteroid_small, asteroid_medium, asteroid_big]
 
@@ -22,7 +23,7 @@ def on_draw():
 
 def update(dt):
     for entity in entity_list:
-        entity.update()
+        entity.update(dt)
 
 
 pyglet.clock.schedule_interval(update, 1/60.0)  # update at 60Hz
